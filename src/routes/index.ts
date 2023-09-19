@@ -24,14 +24,15 @@ export default new VueRouter({
         next: NavigationGuardNext<Vue>
       ) {
         bus.$emit("on:progress");
-        try {
-          await store.dispatch("FETCH_LIST", routeTo.name);
-          next();
-        } catch (error) {
-          new Error("failed to fetch news items");
-          // 실패 했을 때 갈 수 있는 최종 경로
-          // next('/error');
-        }
+        //try {
+        //  await store.dispatch("FETCH_LIST", routeTo.name);
+        //  next();
+        //} catch (error) {
+        //  new Error("failed to fetch news items");
+        //  // 실패 했을 때 갈 수 있는 최종 경로
+        //  // next('/error');
+        //}
+        next();
       },
     },
     {
