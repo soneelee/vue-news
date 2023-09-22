@@ -1,5 +1,12 @@
-export default {
-  SET_NEWS(state, news) {
+import { NewsItem } from "@/api";
+import { RootState } from "./state";
+
+enum MutationTypes {
+  SET_NEWS = "SET_NEWS",
+}
+
+const mutations = {
+  [MutationTypes.SET_NEWS](state: RootState, news: NewsItem[]) {
     state.news = news;
   },
   SET_ASK(state, ask) {
@@ -17,4 +24,7 @@ export default {
   SET_LIST(state, list) {
     state.list = list;
   },
-}
+};
+
+export default mutations;
+export type RootMutations = typeof mutations;
