@@ -1,16 +1,15 @@
 import Vue from "vue";
-import Vuex from "vuex";
-import state from "./state";
-import getters from "./getters.js";
-import mutations from "./mutations.js";
-import actions from "./actions.js";
+import Vuex, { StoreOptions } from "vuex";
+import state, { RootState } from "./state";
+import getters from "./getters";
+import mutations from "./mutations";
+import actions from "./actions";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  strict: process.env.NODE_ENV !== "production",
-  state,
-  getters,
-  mutations,
-  actions,
-});
+const store: StoreOptions<RootState> = {
+  state: state,
+  mutations: mutations,
+  actions: actions,
+};
+export default new Vuex.Store(store);
